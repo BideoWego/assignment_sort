@@ -304,7 +304,7 @@ def radix_sort(array)
 	puts "Creating 10 queues for 0 - 9 digits: #{queues.inspect}"
 
 	char_index = 0
-	no_chars = false
+	has_negatives = no_chars = false
 
 	puts "Char index: #{char_index}"
 	puts "No chars found: #{no_chars}"
@@ -324,10 +324,11 @@ def radix_sort(array)
 			puts "Value: #{value}"
 
 			char = value.reverse[char_index]
+			has_negatives = true if char == '-'
 
 			puts "Char: #{char}"
 
-			if char =~ /[0-9]/
+			if char
 
 				puts "Char found"
 				puts "Pushing #{array[i]} onto queue #{char.to_i}"
@@ -370,23 +371,32 @@ def radix_sort(array)
 		char_index += 1
 	end
 
-	i = 0
-	while (i < array.length)
+	if has_negatives
 
-		puts "#{count}:"
-		count += 1
+		puts "Reverse prepending negatives"
 
-		if array[i] < 0
+		i = 0
+		while (i < array.length)
 
-			puts "Slicing and prepending: #{array[i]}"
+			puts "#{count}:"
+			count += 1
 
-			value = array.slice!(i)
-			array.unshift(value)
+			if array[i] < 0
 
-			puts "Array: #{array.inspect}"
+				puts "Slicing and prepending: #{array[i]}"
 
+				value = array.slice!(i)
+				array.unshift(value)
+
+				puts "Array: #{array.inspect}"
+
+			end
+			i += 1
 		end
-		i += 1
+	else
+
+		puts "Array has no negatives"
+
 	end
 
 	puts "#{array.inspect}"

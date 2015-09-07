@@ -128,7 +128,7 @@ def radix_sort(array)
 	queues = Array.new(10) {[]}
 
 	char_index = 0
-	no_chars = false
+	has_negatives = no_chars = false
 
 	until (no_chars)
 		chars = []
@@ -137,6 +137,7 @@ def radix_sort(array)
 		while (i < array.length)
 			value = array[i].to_s
 			char = value.reverse[char_index]
+			has_negatives = true if char == '-'
 			if char
 				queues[char.to_i].push(array[i])
 				chars.push(char)
@@ -163,13 +164,15 @@ def radix_sort(array)
 		char_index += 1
 	end
 
-	i = 0
-	while (i < array.length)
-		if array[i] < 0
-			value = array.slice!(i)
-			array.unshift(value)
+	if has_negatives
+		i = 0
+		while (i < array.length)
+			if array[i] < 0
+				value = array.slice!(i)
+				array.unshift(value)
+			end
+			i += 1
 		end
-		i += 1
 	end
 
 	array
