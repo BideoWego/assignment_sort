@@ -163,6 +163,15 @@ def radix_sort(array)
 		char_index += 1
 	end
 
+	i = 0
+	while (i < array.length)
+		if array[i] < 0
+			value = array.slice!(i)
+			array.unshift(value)
+		end
+		i += 1
+	end
+
 	array
 end
 

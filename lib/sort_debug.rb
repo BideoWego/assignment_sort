@@ -327,7 +327,7 @@ def radix_sort(array)
 
 			puts "Char: #{char}"
 
-			if char
+			if char =~ /[0-9]/
 
 				puts "Char found"
 				puts "Pushing #{array[i]} onto queue #{char.to_i}"
@@ -369,6 +369,27 @@ def radix_sort(array)
 		no_chars = chars.empty?
 		char_index += 1
 	end
+
+	i = 0
+	while (i < array.length)
+
+		puts "#{count}:"
+		count += 1
+
+		if array[i] < 0
+
+			puts "Slicing and prepending: #{array[i]}"
+
+			value = array.slice!(i)
+			array.unshift(value)
+
+			puts "Array: #{array.inspect}"
+
+		end
+		i += 1
+	end
+
+	puts "#{array.inspect}"
 
 	array
 end

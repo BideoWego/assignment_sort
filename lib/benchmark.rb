@@ -1,4 +1,6 @@
 def benchmark(array, n=100)
+	puts "\n\nReady. Set. Sort!"
+	puts array.length > 100 ? "Given: #{array}"[0..100] + " ..." : "Given: #{array}"
 	results = {}
 	[
 		:bubble_sort,
