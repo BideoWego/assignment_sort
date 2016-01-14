@@ -3,6 +3,7 @@
 # ----------------------------------------
 
 def bubble_sort(array)
+
   # unsorted length begins as full length
   unsorted_length = array.length
 
@@ -54,6 +55,7 @@ end
 # ----------------------------------------
 
 def select_sort(array)
+
   # sorted length begins at first index
   sorted_length = 0
 
@@ -96,6 +98,7 @@ end
 # ----------------------------------------
 
 def insert_sort(array)
+
   # initialize the forward counter
   i = 0
 
@@ -140,6 +143,7 @@ end
 # ----------------------------------------
 
 def merge_sort(array)
+  
   # store length of array
   n = array.length
 
@@ -197,31 +201,63 @@ end
 # ----------------------------------------
 
 def quick_sort(array)
+
+  # partitioning 
   partition = ->(array, lo, hi) do
+
+    # pivot is the last index
     pivot = array[hi]
+
+    # start i at min index
     i = lo
+
+    # min index to n - 1
     lo.upto(hi - 1) do |j|
+
+      # if the value is less or same
+      # as pivot
       if array[j] <= pivot
+
+        # swap those values
         array[i], array[j] = array[j], array[i]
+
+        # look at next index
         i += 1
       end
     end
+
+    # swap the pivot with the last index
+    # we looked at
     array[i], array[hi] = array[hi], array[i]
+
+    # return the new partition index
     i
   end
 
+  # internal recursive quicksort
   qs = ->(array, lo, hi) do
+
+    # if there is still distance
+    # between min and max values
     if lo < hi
+
+      # partition and capture return index
       p = partition.call(array, lo, hi)
+
+      # quick sort left and right
+      # sides of partition
       qs.call(array, lo, p - 1)
       qs.call(array, p + 1, hi)
     end
   end
 
+  # set min and max and call internal
+  # recursive quicksort
   lo = 0
   hi = array.length - 1
   qs.call(array, lo, hi)
 
+  # return array
   array
 end
 
