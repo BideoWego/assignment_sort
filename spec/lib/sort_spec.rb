@@ -1,11 +1,11 @@
 require 'spec_helper'
 
 describe 'sorting functions' do
-	let(:a){Array.new(1*rand(3..10)) {|i| 1*rand(0..10000)}}
-	let(:sorted){a.dup.sort}
+	let(:a) { Array.new(1*rand(1..100)) { |i| 1*rand(-10000..10000) } }
+	let(:sorted) { a.dup.sort }
 
-	# let(:a){[-5,-4,-3,-2,-1,0,1,2,3,4,5]}
-	# let(:sorted){a.dup.sort}
+	# let(:a) { [-5,-4,-3,-2,-1,0,1,2,3,4,5].shuffle }
+	# let(:sorted) { a.dup.sort }
 
 	context "given an unsorted array of integers" do
 		describe '#bubble_sort' do
