@@ -168,26 +168,34 @@ def merge_sort(array)
 
   # until both left and right
   # have not values
-  until left.empty? && right.empty?
+  left_index = 0
+  right_index = 0
+  until left_index >= left.length ||
+        right_index >= right.length
 
     # get first value from both sides
-    l, r = left.first, right.first
+    l, r = left[left_index], right[right_index]
 
-    # if both are not nil
-    if l && r
+    # get the lesser value
+    if r < l
+      value = r
+      right_index += 1
+    elsif 
+      value = l
+      left_index += 1
+    end
 
-      # get the lesser value
-      value = r < l ? right.shift : left.shift
+    # merge it
+    merged << value
+  end
 
-      # merge it
-      merged << value
-
-    elsif l
-      # else merge the value that
-      # was not nil
-      merged << left.shift
-    elsif r
-      merged << right.shift
+  if left_index < left.length
+    (left_index...left.length).each do |index|
+      merged << left[index]
+    end
+  else
+    (right_index...right.length).each do |index|
+      merged << right[index]
     end
   end
 
