@@ -9,51 +9,55 @@ describe '#benchmark' do
 	let(:sorted_large){(0..3000).to_a}
 	let(:reversed_large){(0..3000).to_a.reverse}
 
+  before do
+    allow($stdout).to receive(:puts)
+  end
+
 	it 'returns execution times for sorting an array n times' do
 		expect do
-			p benchmark(small)
+			benchmark(small)
 		end.to_not raise_error
 	end
 
 	it 'takes a random array of integers' do
 		expect do
-			p benchmark(random, 10)
+			benchmark(random, 10)
 		end.to_not raise_error
 	end
 
 	it 'takes an array that is small' do
 		expect do
-			p benchmark(small)
+			benchmark(small)
 		end.to_not raise_error
 	end
 
 	it 'takes an array that is sorted' do
 		expect do
-			p benchmark(sorted)
+			benchmark(sorted)
 		end.to_not raise_error
 	end
 
 	it 'takes an array that is reversed' do
 		expect do
-			p benchmark(reversed)
+			benchmark(reversed)
 		end.to_not raise_error
 	end
 
 	it 'takes an array that is large' do
 		expect do
-			p benchmark(large, 1)
+			benchmark(large, 1)
 		end.to_not raise_error
 	end
 
 	it 'takes an array that is large and sorted' do
 		expect do
-			p benchmark(sorted_large, 1)
+			benchmark(sorted_large, 1)
 		end.to_not raise_error
 	end
 
 	it 'takes an array that is large and reversed' do
 		expect do
-			p benchmark(reversed_large, 1)
+			benchmark(reversed_large, 1)
 		end.to_not raise_error
 	end
 end

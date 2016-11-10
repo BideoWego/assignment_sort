@@ -37,6 +37,9 @@ def bubble_sort(array)
 	array
 end
 
+
+
+
 def select_sort(array)
 	puts "-- Select Sort --"
 	count = 0
@@ -68,6 +71,9 @@ def select_sort(array)
 
 	array
 end
+
+
+
 
 def insert_sort(array)
 	puts "-- Insert Sort --"
@@ -106,6 +112,9 @@ def insert_sort(array)
 
 	array
 end
+
+
+
 
 $merge_sort_counter = 0
 $merge_sort_length = -1
@@ -168,6 +177,9 @@ def merge_sort(array)
 
 	merged
 end
+
+
+
 
 def quick_sort(array)
 
@@ -248,6 +260,9 @@ def quick_sort(array)
 	array
 end
 
+
+
+
 def count_sort(array)
 	puts "-- Count Sort --"
 	puts "#{array.inspect}"
@@ -295,6 +310,9 @@ def count_sort(array)
 
 	array
 end
+
+
+
 
 def radix_sort(array)
 	puts "-- Radix Sort --"
