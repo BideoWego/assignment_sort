@@ -180,7 +180,7 @@ def merge_sort(array)
     if r < l
       value = r
       right_index += 1
-    elsif 
+    else
       value = l
       left_index += 1
     end
