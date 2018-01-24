@@ -102,7 +102,7 @@ def insert_sort(array)
   # initialize the forward counter
   i = 0
 
-  # store array 
+  # store array
   n = array.length
 
   # while we have indexes
@@ -143,7 +143,7 @@ end
 # ----------------------------------------
 
 def merge_sort(array)
-  
+
   # store length of array
   n = array.length
 
@@ -210,7 +210,7 @@ end
 
 def quick_sort(array)
 
-  # partitioning 
+  # partitioning
   partition = ->(array, lo, hi) do
 
     # pivot is the last index
@@ -307,7 +307,7 @@ def radix_sort(array)
 
   until (no_chars)
     chars = []
-    
+
     i = 0
     while (i < array.length)
       value = array[i].to_s
