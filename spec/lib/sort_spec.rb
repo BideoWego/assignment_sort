@@ -4,6 +4,10 @@ describe 'sorting functions' do
   let(:a) { Array.new(1*rand(1..100)) { |i| 1*rand(-10000..10000) } }
   let(:sorted) { a.dup.sort }
 
+  before do
+    sorted
+  end
+
   # let(:a) { [-5,-4,-3,-2,-1,0,1,2,3,4,5].shuffle }
   # let(:sorted) { a.dup.sort }
 

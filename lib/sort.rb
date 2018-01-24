@@ -123,7 +123,7 @@ def insert_sort(array)
 
       # swap the current value
       # with the previous
-      array[j] = array[j - 1]
+      array[j - 1], array[j] = array[j], array[j - 1]
 
       # decrement backwards counter
       j -= 1
